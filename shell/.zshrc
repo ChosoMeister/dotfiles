@@ -127,18 +127,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Created by `pipx` on 2025-08-10 06:43:12
-export PATH="$PATH:/Users/mustafa/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 #source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 #source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # Added by Antigravity
-export PATH="/Users/mustafa/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # Added by Antigravity to fix Python PATH precedence
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # bun completions
-[ -s "/Users/mustafa/.bun/_bun" ] && source "/Users/mustafa/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

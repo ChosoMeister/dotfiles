@@ -5,7 +5,7 @@
 # Last Updated: 2026-03-12
 #
 # Usage:
-#   git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/.dotfiles
+#   git clone https://github.com/ChosoMeister/dotfiles.git ~/.dotfiles
 #   cd ~/.dotfiles
 #   bash install.sh
 # ============================================================

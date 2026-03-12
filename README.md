@@ -18,7 +18,7 @@
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/.dotfiles
+git clone https://github.com/ChosoMeister/dotfiles.git ~/.dotfiles
 
 # 2. Run install
 cd ~/.dotfiles

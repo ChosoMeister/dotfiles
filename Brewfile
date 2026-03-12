@@ -40,10 +40,10 @@ brew "python@3.14"
 brew "sstp-client"
 brew "tree"
 brew "wgcf"
+brew "stoken"
+brew "tesseract"
 brew "zpaq"
 brew "zsh-autocomplete"
-brew "android-platform-tools"
-brew "gcloud-cli"
 
 # --------------------------------------------------
 # 🔤 Fonts
@@ -84,7 +84,7 @@ cask "dbeaver-community"
 # --------------------------------------------------
 cask "obs"
 cask "audacity"
-cask "handbrake-app"
+cask "handbrake"
 cask "losslesscut"
 cask "iina"
 cask "krita"
@@ -109,8 +109,11 @@ cask "logi-options+"
 cask "meetingbar"
 cask "swiftbar"
 cask "osaurus"
+cask "android-platform-tools"
 cask "basictex"
+cask "google-cloud-sdk"
 cask "microsoft-auto-update"
+cask "powershell"
 
 # --------------------------------------------------
 # 🌐 VPN & Network
