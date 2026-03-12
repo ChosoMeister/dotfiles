@@ -1,0 +1,44 @@
+IdentityFile ~/.ssh/id_ed25519
+Include ~/.orbstack/ssh/config
+AddKeysToAgent yes
+UseKeychain yes
+RequestTTY yes
+
+Host chozo.ir
+	User root
+	HostName chozo.ir
+	IdentityFile ~/.ssh/id_ed25519
+	AddKeysToAgent yes
+
+# echo "sysadmin ALL=(ALL) NOPASSWD: /usr/bin/su" | sudo tee /etc/sudoers.d/sysadmin > /dev/null && sudo chmod 0440 /etc/sudoers.d/sysadmin
+Host IS-INFRA-APP-SRV
+	User sysadmin
+	HostName 10.20.47.90
+	IdentityFile ~/.ssh/id_ed25519
+	RemoteCommand sudo su -
+	AddKeysToAgent yes
+
+# echo "sysadmin ALL=(ALL) NOPASSWD: /usr/bin/su" | sudo tee /etc/sudoers.d/sysadmin > /dev/null && sudo chmod 0440 /etc/sudoers.d/sysadmin
+Host IS-INFRA-APP-SRV Public IP
+	User sysadmin
+	HostName 81.91.144.230
+	IdentityFile ~/.ssh/id_ed25519
+	RemoteCommand sudo su -
+	AddKeysToAgent yes
+
+Host hostiran
+	User root
+	HostName 185.83.183.204
+	Port 22
+
+Host TrustTunnel-SRV
+	User root
+	HostName 91.107.140.254
+
+# echo "sysadmin ALL=(ALL) NOPASSWD: /usr/bin/su" | sudo tee /etc/sudoers.d/sysadmin > /dev/null && sudo chmod 0440 /etc/sudoers.d/sysadmin
+Host IS-N8N-SRV
+	User sysadmin
+	HostName 10.20.47.88
+	IdentityFile ~/.ssh/id_ed25519
+	RemoteCommand sudo su -
+	AddKeysToAgent yes

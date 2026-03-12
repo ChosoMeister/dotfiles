@@ -1,0 +1,7 @@
+[core]
+	compression = 0
+[user]
+	name = Mustafa
+	email = mustafa@tayefi.me
+[safe]
+	directory = *
