@@ -1,7 +1,39 @@
 [core]
 	compression = 0
+	autocrlf = input
+	editor = code --wait
+
 [user]
 	name = Mustafa
 	email = mustafa@tayefi.me
+
 [safe]
 	directory = *
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	lg = log --oneline --graph --decorate -15
+	last = log -1 HEAD --stat
+	undo = reset HEAD~1 --mixed
+	amend = commit --amend --no-edit
+	wip = !git add -A && git commit -m 'WIP'
+
+[diff]
+	colorMoved = zebra
+
+[merge]
+	conflictStyle = diff3
+
+[credential]
+	helper = osxkeychain

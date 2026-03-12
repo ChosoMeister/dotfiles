@@ -119,9 +119,17 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ── Source custom configs ──
+[ -r "$HOME/.dotfiles/shell/aliases.zsh" ] && source "$HOME/.dotfiles/shell/aliases.zsh"
+[ -r "$HOME/.dotfiles/shell/functions.zsh" ] && source "$HOME/.dotfiles/shell/functions.zsh"
+
+# ── SSH wrapper (force xterm-256color for remote sessions) ──
 ssh() {
   TERM=xterm-256color command ssh "$@"
 }
+
+# ── NVM ──
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

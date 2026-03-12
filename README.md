@@ -1,18 +1,34 @@
 # 🖥️ Mustafa's Dotfiles
 
+[![macOS](https://img.shields.io/badge/macOS-Sequoia-black?logo=apple)](https://www.apple.com/macos/)
+[![Shell](https://img.shields.io/badge/Shell-Zsh-blue?logo=gnubash)](https://www.zsh.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
 > یک کامند و همه چیز نصب میشه! 🚀
 
-## 📦 چی شامل میشه؟
+## 📁 ساختار
 
-| بخش | توضیح |
-|---|---|
-| `Brewfile` | همه اپ‌ها، CLI tools، فونت‌ها، VS Code extensions |
-| `install.sh` | اسکریپت اصلی نصب خودکار |
-| `macos/defaults.sh` | تنظیمات Dock، Finder و macOS |
-| `shell/` | `.zshrc`، `.zprofile`، `.p10k.zsh` |
-| `git/.gitconfig` | تنظیمات Git |
-| `ssh/config` | SSH hosts |
-| `hammerspoon/init.lua` | Clipboard Typer |
+```
+~/.dotfiles/
+├── install.sh          # اسکریپت اصلی نصب خودکار
+├── Brewfile            # اپ‌ها، CLI tools، فونت‌ها، VS Code extensions
+├── .gitignore          # فایل‌های ignore شده
+├── macos/
+│   └── defaults.sh     # تنظیمات Dock, Finder, Keyboard, Screenshots
+├── shell/
+│   ├── .zshrc          # کانفیگ اصلی Zsh
+│   ├── .zprofile       # PATH و env vars
+│   ├── .p10k.zsh       # تم Powerlevel10k
+│   ├── aliases.zsh     # 30+ میانبر
+│   └── functions.zsh   # توابع کاربردی (mkcd, extract, ...)
+├── git/
+│   └── .gitconfig      # تنظیمات Git + aliases
+├── ssh/
+│   └── config          # SSH hosts
+├── hammerspoon/
+│   └── init.lua        # Clipboard Typer
+└── README.md
+```
 
 ## 🚀 نصب سریع
 
@@ -25,9 +41,42 @@ cd ~/.dotfiles
 bash install.sh
 ```
 
-## ⚠️ نصب دستی
+### گزینه‌های نصب
 
-این اپ‌ها رو باید خودت دانلود و نصب کنی:
+```bash
+bash install.sh                # نصب کامل
+bash install.sh --skip-brew    # بدون Homebrew packages
+bash install.sh --skip-macos   # بدون macOS defaults
+```
+
+## 🛠️ ابزارهای مدرن CLI
+
+| ابزار | جایگزین | کاربرد |
+|--------|---------|--------|
+| `eza` | `ls` | ls با آیکون و رنگ |
+| `bat` | `cat` | cat با syntax highlighting |
+| `ripgrep` | `grep` | grep فوق سریع |
+| `fd` | `find` | find ساده‌تر |
+| `fzf` | — | Fuzzy finder |
+| `zoxide` | `cd` | cd هوشمند |
+| `lazygit` | — | Git TUI |
+| `htop` | `top` | مانیتور سیستم |
+
+## ⚡ Aliases مفید
+
+```bash
+gs    → git status -sb
+gac   → git add -A && git commit -m
+gp    → git push
+gl    → git log --oneline --graph
+dcu   → docker compose up -d
+o     → open .
+ip    → public IP
+mkcd  → mkdir + cd
+reload → source ~/.zshrc
+```
+
+## ⚠️ نصب دستی
 
 | # | اپ | لینک |
 |---|---|---|
@@ -50,3 +99,7 @@ brew bundle dump --file=~/.dotfiles/Brewfile --force
 cd ~/.dotfiles
 git add -A && git commit -m "update" && git push
 ```
+
+## 📄 License
+
+MIT © [Mustafa](https://github.com/ChosoMeister)
