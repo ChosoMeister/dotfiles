@@ -94,7 +94,7 @@ cask "dbeaver-community"
 # --------------------------------------------------
 cask "obs"
 cask "audacity"
-cask "handbrake"
+cask "handbrake-app"
 cask "losslesscut"
 cask "iina"
 cask "krita"
