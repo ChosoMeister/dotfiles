@@ -3,13 +3,16 @@
 -- Press Escape any time to cancel typing mid-way.
 
 local focusDelay      = 0.15    -- seconds to wait after click before typing starts
-local charDelay       = 0.008   -- seconds between each character (prevents VMware drops)
+local charDelay       = 0.02    -- seconds between each character (VNC-safe)
 local alertTimeout    = 8       -- seconds the "click where…" prompt stays visible
 local progressEvery   = 20      -- show progress every N characters
 
 local clickTap   = nil
 local cancelFlag = false
 local escapeTap  = nil
+
+-- Left Shift key code
+local SHIFT_KEY = 56
 
 -- Splits a UTF-8 string into a list of individual Unicode characters.
 local function utf8chars(str)
@@ -20,19 +23,73 @@ local function utf8chars(str)
   return t
 end
 
--- Map of special characters that keyStrokes() cannot handle reliably.
-local specialKeys = {
-  ["\n"] = "return",
-  ["\r"] = "return",
-  ["\t"] = "tab",
-  [" "]  = "space",
+-- Characters that need Shift (US keyboard layout)
+local shiftMap = {
+  ["~"] = "`", ["!"] = "1", ["@"] = "2", ["#"] = "3", ["$"] = "4",
+  ["%"] = "5", ["^"] = "6", ["&"] = "7", ["*"] = "8", ["("] = "9",
+  [")"] = "0", ["_"] = "-", ["+"] = "=", ["{"] = "[", ["}"] = "]",
+  ["|"] = "\\", [":"] = ";", ['"'] = "'", ["<"] = ",", [">"] = ".",
+  ["?"] = "/",
 }
 
--- Type a single character safely: special chars use keyStroke, rest use keyStrokes.
+-- Press a key without modifiers using explicit keyDown/keyUp events.
+local function pressKey(key)
+  hs.eventtap.event.newKeyEvent(key, true):post()
+  hs.eventtap.event.newKeyEvent(key, false):post()
+end
+
+-- Press a key WITH Shift, sending explicit flagsChanged events for the
+-- Shift modifier.  Browser-based VNC consoles (e.g. Hetzner Cloud Console)
+-- track modifier state through separate flagsChanged events – they ignore
+-- the modifier flags embedded in regular key events.
+local function pressWithShift(key)
+  -- 1. Shift DOWN (flagsChanged)
+  hs.eventtap.event.newKeyEvent(SHIFT_KEY, true)
+      :setType(hs.eventtap.event.types.flagsChanged)
+      :setFlags({shift = true})
+      :post()
+  -- 2. Key DOWN with shift flag
+  hs.eventtap.event.newKeyEvent(key, true)
+      :setFlags({shift = true})
+      :post()
+  -- 3. Key UP with shift flag
+  hs.eventtap.event.newKeyEvent(key, false)
+      :setFlags({shift = true})
+      :post()
+  -- 4. Shift UP (flagsChanged)
+  hs.eventtap.event.newKeyEvent(SHIFT_KEY, false)
+      :setType(hs.eventtap.event.types.flagsChanged)
+      :setFlags({})
+      :post()
+end
+
+-- Type a single character using raw key events for VNC compatibility.
 local function typeChar(char)
-  local keyName = specialKeys[char]
-  if keyName then
-    hs.eventtap.keyStroke({}, keyName, 0)
+  -- Whitespace / control
+  if char == "\n" or char == "\r" then
+    pressKey("return")
+  elseif char == "\t" then
+    pressKey("tab")
+  elseif char == " " then
+    pressKey("space")
+
+  -- Uppercase letter → Shift + lowercase
+  elseif char:match("^%u$") then
+    pressWithShift(char:lower())
+
+  -- Lowercase letter or digit → press directly
+  elseif char:match("^%l$") or char:match("^%d$") then
+    pressKey(char)
+
+  -- Shifted punctuation (e.g. @ # $ !)
+  elseif shiftMap[char] then
+    pressWithShift(shiftMap[char])
+
+  -- Unshifted punctuation (e.g. - = [ ] ; ' , . / ` \)
+  elseif char:match("^[%p]$") then
+    pressKey(char)
+
+  -- Non-ASCII (Persian, Arabic, emoji, etc.) → fall back to text input
   else
     hs.eventtap.keyStrokes(char)
   end
