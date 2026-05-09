@@ -73,7 +73,7 @@ git config --global core.compression 0
 # --------------------------------------------------
 if [ "$SKIP_BREW" -eq 0 ]; then
     step "🍺 Step 2: Installing Homebrew packages..."
-    brew bundle install --file="$DOTFILES_DIR/Brewfile" --no-lock
+    brew bundle install --file="$DOTFILES_DIR/Brewfile" || warn "Some Brewfile packages failed (may need sudo or network)"
     info "Homebrew packages installed"
 else
     warn "Skipping Homebrew (--skip-brew)"
@@ -171,13 +171,17 @@ if [ ! -d "$HOME/.nvm" ]; then
 fi
 info "NVM installed"
 
-# Load NVM and install Node
+# Load NVM and install Node (nvm.sh can fail under set -e)
+set +e
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-if ! nvm ls 22 &>/dev/null; then
-    echo "  → Installing Node 22 via NVM..."
-    nvm install 22
+if type nvm &>/dev/null; then
+    nvm ls 22 &>/dev/null || {
+        echo "  → Installing Node 22 via NVM..."
+        nvm install 22
+    }
 fi
+set -e
 info "Node 22 installed"
 
 # Bun

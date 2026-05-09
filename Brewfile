@@ -9,7 +9,6 @@
 # --------------------------------------------------
 tap "cloudflare/cloudflare"
 tap "majd/repo"
-tap "homebrew/cask-fonts"
 
 # --------------------------------------------------
 # 🛠️ CLI Tools (Formulae)
