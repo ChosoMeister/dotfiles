@@ -147,6 +147,18 @@ symlink "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
 mkdir -p "$HOME/.hammerspoon"
 symlink "$DOTFILES_DIR/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
+# iTerm2 Dynamic Profile
+mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+symlink "$DOTFILES_DIR/iterm2/mustafa-profile.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/mustafa-profile.json"
+
+# WezTerm
+mkdir -p "$HOME/.config/wezterm"
+symlink "$DOTFILES_DIR/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+
+# Ghostty
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+symlink "$DOTFILES_DIR/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+
 # --------------------------------------------------
 # ⚡ Runtime Managers
 # --------------------------------------------------

@@ -1,6 +1,6 @@
 # ============================================================
 # 🍺 Brewfile – Mustafa's macOS Setup
-# Generated: 2026-03-12
+# Updated: 2026-05-10
 # Usage: brew bundle install --file=~/.dotfiles/Brewfile
 # ============================================================
 
@@ -17,11 +17,13 @@ tap "homebrew/cask-fonts"
 brew "bat"
 brew "bind"
 brew "cloudflared"
+brew "direnv"
 brew "ente-cli"
 brew "eza"
 brew "fd"
 brew "ffmpeg"
 brew "fzf"
+brew "gh"
 brew "htop"
 brew "ipatool"
 brew "jq"
@@ -61,6 +63,8 @@ brew "zsh-autocomplete"
 cask "font-vazirmatn"
 cask "font-noto-naskh-arabic"
 cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
 
 # --------------------------------------------------
 # 🌐 Browsers
@@ -75,7 +79,6 @@ cask "zen"
 # --------------------------------------------------
 cask "whatsapp"
 cask "discord"
-cask "skype"
 
 # --------------------------------------------------
 # 🛠️ Development – IDEs & Editors
@@ -83,6 +86,7 @@ cask "skype"
 cask "visual-studio-code"
 cask "cursor"
 cask "ghostty"
+cask "iterm2"
 cask "wezterm"
 cask "warp"
 cask "termius"
@@ -94,7 +98,7 @@ cask "dbeaver-community"
 # --------------------------------------------------
 cask "obs"
 cask "audacity"
-cask "handbrake-app"
+cask "handbrake"
 cask "losslesscut"
 cask "iina"
 cask "krita"
@@ -121,7 +125,7 @@ cask "swiftbar"
 cask "osaurus"
 cask "android-platform-tools"
 cask "basictex"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 cask "microsoft-auto-update"
 cask "powershell"
 
@@ -135,7 +139,6 @@ cask "outline"
 # --------------------------------------------------
 cask "anydesk"
 cask "teamviewer"
-cask "microsoft-remote-desktop"
 cask "vmware-fusion"
 cask "omnissa-horizon-client"
 cask "virtualbuddy"
@@ -159,12 +162,9 @@ cask "hammerspoon"
 # --------------------------------------------------
 mas "Bitwarden", id: 1352778147
 mas "Microsoft To Do", id: 1274495053
-mas "Amphetamine", id: 937984704
-mas "Telegram", id: 747648890
 mas "CotEditor", id: 1024640650
-mas "WhatsApp", id: 1451685025
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Xcode", id: 497799835
+mas "Windows App", id: 1295203466
 
 # --------------------------------------------------
 # 🆚 VS Code Extensions
@@ -186,3 +186,4 @@ vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
 vscode "openai.chatgpt"
 vscode "saoudrizwan.claude-dev"
+vscode "shd101wyy.markdown-preview-enhanced"

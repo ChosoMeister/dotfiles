@@ -88,6 +88,18 @@ defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
 
 # --------------------------------------------------
+# 🖥️ iTerm2
+# --------------------------------------------------
+# فعال‌سازی پشتیبانی RTL (فارسی/عربی)
+defaults write com.googlecode.iterm2 Bidi -int 1
+# تم Compact (نوار بالا مثل Ghostty)
+defaults write com.googlecode.iterm2 TabStyleWithAutomaticOption -int 5
+# مخفی کردن اسکرول‌بار
+defaults write com.googlecode.iterm2 HideScrollbar -bool true
+# کپی هنگام انتخاب
+defaults write com.googlecode.iterm2 CopySelection -bool true
+
+# --------------------------------------------------
 # 🔄 Restart affected apps
 # --------------------------------------------------
 echo "🔄 Restarting Dock and Finder..."

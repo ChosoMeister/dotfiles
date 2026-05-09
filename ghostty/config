@@ -1,0 +1,74 @@
+font-family = "JetBrainsMono-Regular"
+font-style-bold = "Medium"
+font-style-bold-italic = "Medium Italic"
+# Slightly reduce the font size; adjust to suit your screen and preferences
+font-size = 14
+# Thicken the font for a more natural rendering
+font-thicken = true
+grapheme-width-method = "unicode"
+# Don’t adjust cell width to avoid display issues
+adjust-cell-width = 0%
+# Optimized color scheme for better contrast and readability
+# Darken the background a bit to increase contrast
+palette = 0=#1e222a
+# Tweak red
+palette = 1=#e06c75
+# Tweak green
+palette = 2=#98c379
+# Tweak yellow
+palette = 3=#e5c07b
+# Tweak blue
+palette = 4=#61afef
+# Tweak purple
+palette = 5=#c678dd
+# Tweak cyan
+palette = 6=#56b6c2
+# Light white for better contrast against the background
+palette = 7=#dcdfe4
+# Dark gray
+palette = 8=#545862
+# Red
+palette = 9=#e06c75
+# Green
+palette = 10=#98c379
+# Yellow
+palette = 11=#e5c07b
+# Blue
+palette = 12=#61afef
+# Purple
+palette = 13=#c678dd
+# Cyan
+palette = 14=#56b6c2
+# Pure white for highlighted text
+palette = 15=#ffffff
+# Same as palette 0
+background = 1e222a
+# Same as palette 7, for higher contrast
+foreground = dcdfe4
+# Use yellow for the cursor so it’s easier to spot
+cursor-color = e5c07b
+# Darken the selection background for better contrast
+selection-background = 405060
+# Selection foreground color
+selection-foreground = dcdfe4
+# Keep inverted colors when selecting text
+selection-invert-fg-bg = true
+cursor-style = "bar"
+cursor-style-blink = true
+# Reduce scrollback history to save memory
+scrollback-limit = 20000
+# Reduce horizontal padding to save screen space
+window-padding-x = 15
+# Uniform vertical padding
+window-padding-y = 15
+window-save-state = "always"
+background-opacity = 0.8
+# Background blur radius
+background-blur-radius = 25
+# Safer keybinding to avoid conflicts
+keybind = global:alt+grave_accent=toggle_quick_terminal
+# copy-on-select pushes your selection into the system clipboard  
+copy-on-select = "clipboard"
+# allow Ghostty to read/write the system clipboard
+clipboard-read  = "allow"
+clipboard-write = "allow"
