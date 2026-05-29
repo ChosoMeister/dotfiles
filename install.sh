@@ -80,7 +80,7 @@ else
 fi
 
 # --------------------------------------------------
-# 🐚 Shell Setup (Oh My Zsh + Powerlevel10k + Plugins)
+# 🐚 Shell Setup (Oh My Zsh + Plugins)
 # --------------------------------------------------
 step "🐚 Step 3: Shell setup..."
 
@@ -92,14 +92,6 @@ fi
 info "Oh My Zsh installed"
 
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-# Powerlevel10k
-if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-    echo "  → Installing Powerlevel10k..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-        "$ZSH_CUSTOM/themes/powerlevel10k"
-fi
-info "Powerlevel10k installed"
 
 # zsh-autosuggestions
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
@@ -135,7 +127,6 @@ symlink() {
 
 symlink "$DOTFILES_DIR/shell/.zshrc" "$HOME/.zshrc"
 symlink "$DOTFILES_DIR/shell/.zprofile" "$HOME/.zprofile"
-symlink "$DOTFILES_DIR/shell/.p10k.zsh" "$HOME/.p10k.zsh"
 symlink "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
 # SSH config
@@ -154,6 +145,22 @@ symlink "$DOTFILES_DIR/iterm2/mustafa-profile.json" "$HOME/Library/Application S
 # WezTerm
 mkdir -p "$HOME/.config/wezterm"
 symlink "$DOTFILES_DIR/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+
+# Starship
+mkdir -p "$HOME/.config"
+symlink "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
+
+# Yazi
+mkdir -p "$HOME/.config"
+symlink "$DOTFILES_DIR/yazi" "$HOME/.config/yazi"
+
+# Kaku
+mkdir -p "$HOME/.config/kaku"
+symlink "$DOTFILES_DIR/kaku/kaku.lua" "$HOME/.config/kaku/kaku.lua"
+
+# OpenCode
+mkdir -p "$HOME/.config/opencode"
+symlink "$DOTFILES_DIR/opencode/opencode.jsonc" "$HOME/.config/opencode/opencode.jsonc"
 
 # Ghostty
 mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
@@ -198,7 +205,7 @@ step "📦 Step 6: Global packages..."
 
 # NPM globals
 echo "  → Installing NPM global packages..."
-npm install -g pnpm shadcn @vudovn/ag-kit
+npm install -g pnpm shadcn @vudovn/ag-kit @openai/codex antigravity-usage
 
 # pipx
 echo "  → Installing pipx packages..."

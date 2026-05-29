@@ -1,0 +1,129 @@
+# ~/.config/starship.toml
+# Clean, fast, developer-friendly Starship config for macOS
+
+add_newline = true
+command_timeout = 1000
+
+format = """
+[╭─](bold blue)$directory$git_branch$git_status$nodejs$python$golang$rust$docker_context$kubernetes$aws$gcloud$cmd_duration
+[╰─](bold blue)$character"""
+
+right_format = """$time"""
+
+palette = "kaku_clean"
+
+[palettes.kaku_clean]
+blue = "#7AA2F7"
+cyan = "#7DCFFF"
+green = "#9ECE6A"
+yellow = "#E0AF68"
+red = "#F7768E"
+purple = "#BB9AF7"
+orange = "#FF9E64"
+gray = "#565F89"
+white = "#C0CAF5"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
+[directory]
+style = "bold cyan"
+format = "[$path]($style) "
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "~"
+read_only = " "
+read_only_style = "red"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold yellow"
+format = "[$all_status$ahead_behind]($style) "
+conflicted = "=${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "?${count} "
+stashed = "\\$${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "via [$symbol$version]($style) "
+detect_extensions = ["js", "mjs", "cjs", "ts", "tsx", "jsx"]
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol$version]($style) "
+pyenv_version_name = true
+python_binary = ["python3", "python"]
+
+[golang]
+symbol = " "
+style = "bold cyan"
+format = "via [$symbol$version]($style) "
+
+[rust]
+symbol = " "
+style = "bold orange"
+format = "via [$symbol$version]($style) "
+
+[docker_context]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol$context]($style) "
+only_with_files = true
+
+[kubernetes]
+symbol = "󱃾 "
+style = "bold blue"
+format = "on [$symbol$context( \\($namespace\\))]($style) "
+disabled = true
+
+[aws]
+symbol = "☁️ "
+style = "bold orange"
+format = "on [$symbol$profile]($style) "
+disabled = false
+
+[gcloud]
+symbol = "☁️ "
+style = "bold blue"
+format = "on [$symbol$account@$project]($style) "
+disabled = false
+
+[cmd_duration]
+min_time = 1500
+style = "bold yellow"
+format = "took [$duration]($style) "
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bold gray"
+format = "[$time]($style)"
+
+[package]
+disabled = true
+
+[hostname]
+disabled = true
+
+[username]
+disabled = true
+
+[battery]
+disabled = true

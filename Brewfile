@@ -8,7 +8,10 @@
 # 📌 Taps
 # --------------------------------------------------
 tap "cloudflare/cloudflare"
+tap "anomalyco/tap"
 tap "majd/repo"
+tap "pluk-inc/tap"
+tap "tw93/tap"
 
 # --------------------------------------------------
 # 🛠️ CLI Tools (Formulae)
@@ -22,7 +25,9 @@ brew "eza"
 brew "fd"
 brew "ffmpeg"
 brew "fzf"
+brew "gemini-cli"
 brew "gh"
+brew "git-delta"
 brew "htop"
 brew "ipatool"
 brew "jq"
@@ -47,14 +52,17 @@ brew "python@3.11"
 brew "python@3.14"
 brew "ripgrep"
 brew "sstp-client"
+brew "starship"
 brew "stoken"
 brew "tesseract"
 brew "tldr"
 brew "tree"
 brew "wgcf"
+brew "yazi"
 brew "zoxide"
 brew "zpaq"
 brew "zsh-autocomplete"
+brew "anomalyco/tap/opencode"
 
 # --------------------------------------------------
 # 🔤 Fonts
@@ -97,7 +105,7 @@ cask "dbeaver-community"
 # --------------------------------------------------
 cask "obs"
 cask "audacity"
-cask "handbrake"
+cask "handbrake-app"
 cask "losslesscut"
 cask "iina"
 cask "krita"
@@ -125,7 +133,10 @@ cask "osaurus"
 cask "android-platform-tools"
 cask "basictex"
 cask "gcloud-cli"
+cask "kakuku"
+cask "markdown-preview"
 cask "microsoft-auto-update"
+cask "opencode-desktop"
 cask "powershell"
 
 # --------------------------------------------------

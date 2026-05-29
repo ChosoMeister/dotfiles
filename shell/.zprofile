@@ -12,3 +12,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # Created by `pipx` on 2025-08-10 06:43:12
 export PATH="$PATH:/Users/mustafa/.local/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/mustafa/.local/bin:$PATH"

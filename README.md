@@ -10,23 +10,32 @@
 
 ```
 ~/.dotfiles/
-├── install.sh          # اسکریپت اصلی نصب خودکار
-├── Brewfile            # اپ‌ها، CLI tools، فونت‌ها، VS Code extensions
-├── .gitignore          # فایل‌های ignore شده
+├── install.sh                  # اسکریپت اصلی نصب خودکار
+├── Brewfile                    # اپ‌ها، CLI tools، فونت‌ها، VS Code extensions
+├── .gitignore                  # فایل‌های ignore شده
 ├── macos/
-│   └── defaults.sh     # تنظیمات Dock, Finder, Keyboard, Screenshots
+│   └── defaults.sh             # تنظیمات Dock, Finder, Keyboard, Screenshots
 ├── shell/
-│   ├── .zshrc          # کانفیگ اصلی Zsh
-│   ├── .zprofile       # PATH و env vars
-│   ├── .p10k.zsh       # تم Powerlevel10k
-│   ├── aliases.zsh     # 30+ میانبر
-│   └── functions.zsh   # توابع کاربردی (mkcd, extract, ...)
+│   ├── .zshrc                  # کانفیگ اصلی Zsh + Starship
+│   ├── .zprofile               # PATH و env vars
+│   ├── aliases.zsh             # میانبرها
+│   └── functions.zsh           # توابع کاربردی (mkcd, extract, ...)
+├── starship/
+│   └── starship.toml           # prompt فعلی
+├── yazi/                       # فایل منیجر ترمینال + theme
+├── kaku/
+│   └── kaku.lua                # override امن Kaku
+├── opencode/
+│   └── opencode.jsonc          # کانفیگ global OpenCode بدون secret
 ├── git/
-│   └── .gitconfig      # تنظیمات Git + aliases
+│   └── .gitconfig              # تنظیمات Git + aliases
 ├── ssh/
-│   └── config          # SSH hosts
+│   └── config                  # SSH hosts
+├── ghostty/
+├── wezterm/
+├── iterm2/
 ├── hammerspoon/
-│   └── init.lua        # Clipboard Typer
+│   └── init.lua                # Clipboard Typer
 └── README.md
 ```
 
@@ -61,6 +70,10 @@ bash install.sh --skip-macos   # بدون macOS defaults
 | `zoxide` | `cd` | cd هوشمند |
 | `lazygit` | — | Git TUI |
 | `htop` | `top` | مانیتور سیستم |
+| `starship` | prompt | prompt سریع و قابل حمل |
+| `yazi` | file manager | فایل منیجر ترمینال |
+| `git-delta` | git diff | diff خواناتر |
+| `opencode` | AI coding | دستیار کدنویسی CLI |
 
 ## ⚡ Aliases مفید
 
@@ -89,11 +102,50 @@ reload → source ~/.zshrc
 | 7 | ⚙️ SSH Config Editor | App Store |
 | 8 | 🚀 Shadowrocket | App Store |
 
+> نکته: `Shadowrocket` و `SSTP Connect` به Apple ID وابسته‌اند. اگر با Apple ID دیگری خریده/نصب شده‌اند، بهتر است داخل `Brewfile` مدیریت نشوند و دستی از همان اکانت نصب/آپدیت شوند.
+
+## 🔗 Symlinkها
+
+`install.sh` این مسیرها را از ریپو به سیستم لینک می‌کند:
+
+```bash
+~/.zshrc
+~/.zprofile
+~/.gitconfig
+~/.ssh/config
+~/.hammerspoon/init.lua
+~/.config/starship.toml
+~/.config/yazi
+~/.config/kaku/kaku.lua
+~/.config/opencode/opencode.jsonc
+~/.config/wezterm/wezterm.lua
+~/Library/Application Support/com.mitchellh.ghostty/config
+~/Library/Application Support/iTerm2/DynamicProfiles/mustafa-profile.json
+```
+
+## 🔒 Secret Hygiene
+
+این فایل‌ها عمداً وارد ریپو نمی‌شوند:
+
+```bash
+~/.npmrc
+~/.ssh/id_*
+~/.ssh/known_hosts
+~/.zsh_history
+~/.cache
+~/.config/kaku/state.json
+~/.config/kaku/last_cwd
+~/.config/opencode/node_modules
+```
+
 ## 📝 بروزرسانی
 
 ```bash
 # Export current Brewfile
 brew bundle dump --file=~/.dotfiles/Brewfile --force
+
+# Check current machine against Brewfile
+brew bundle check --file=~/.dotfiles/Brewfile
 
 # Commit changes
 cd ~/.dotfiles
