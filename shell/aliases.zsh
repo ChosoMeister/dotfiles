@@ -41,7 +41,6 @@ alias gd='git diff'
 alias gb='git branch'
 alias gsw='git switch'
 alias amend='git add . && git commit --amend --no-edit'
-alias nuke='git clean -df && git reset --hard'
 
 # ── Docker ──
 alias dps='docker ps'

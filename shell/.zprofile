@@ -10,13 +10,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 # PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:${PATH}"
 # export PATH
 
-# Created by `pipx` on 2025-08-10 06:43:12
-export PATH="$PATH:/Users/mustafa/.local/bin"
-
-
-# Added by Antigravity CLI installer
-export PATH="/Users/mustafa/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Custom dotfiles scripts
 export PATH="$HOME/.dotfiles/bin:$PATH"
-

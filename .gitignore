@@ -16,6 +16,4 @@
 *.sqlite
 /bin/*
 !/bin/.gitkeep
-!/bin/update_home.py
-
 

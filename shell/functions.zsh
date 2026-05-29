@@ -45,3 +45,16 @@ take() {
 tre() {
   tree -aC -I '.git|node_modules|.DS_Store' --dirsfirst "$@" | less -FRNX
 }
+
+# ── nuke: Destructive git cleanup with confirmation ──
+nuke() {
+  print -r "This will delete untracked files and reset tracked changes in: $PWD"
+  print -r "Type 'nuke' to continue:"
+  read -r confirm
+  if [[ "$confirm" != "nuke" ]]; then
+    print -r "Aborted"
+    return 1
+  fi
+
+  git clean -df && git reset --hard
+}
