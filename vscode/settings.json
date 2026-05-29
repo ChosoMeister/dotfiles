@@ -1,0 +1,19 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.autofetch": true,
+    "workbench.sideBar.location": "right",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "http.proxyAuthorization": null,
+    "genieai.openai.apiBaseUrl": "https://ollamaoss.orchidpharmed.com/v1",
+    "ollamaEnhanced.apiUrl": "http://OP-0-WW-INT-066.orchidpharmed.com:11434",
+    "ollamaEnhanced.defaultModel": "qwen3-coder:30b",
+    "ollamaEnhanced.mode": "auto",
+    "ollamaEnhanced.showFileExplorer": true,
+    "workbench.secondarySideBar.defaultVisibility": "visible"
+}

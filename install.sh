@@ -80,7 +80,7 @@ else
 fi
 
 # --------------------------------------------------
-# 🐚 Shell Setup (Oh My Zsh + Plugins)
+# 🐚 Shell Setup (Oh My Zsh)
 # --------------------------------------------------
 step "🐚 Step 3: Shell setup..."
 
@@ -90,24 +90,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 info "Oh My Zsh installed"
-
-ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-# zsh-autosuggestions
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-    echo "  → Installing zsh-autosuggestions..."
-    git clone https://github.com/zsh-users/zsh-autosuggestions \
-        "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-fi
-info "zsh-autosuggestions installed"
-
-# zsh-syntax-highlighting
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    echo "  → Installing zsh-syntax-highlighting..."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting \
-        "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-fi
-info "zsh-syntax-highlighting installed"
 
 # --------------------------------------------------
 # 🔗 Symlink Config Files
@@ -161,6 +143,11 @@ symlink "$DOTFILES_DIR/kaku/kaku.lua" "$HOME/.config/kaku/kaku.lua"
 # OpenCode
 mkdir -p "$HOME/.config/opencode"
 symlink "$DOTFILES_DIR/opencode/opencode.jsonc" "$HOME/.config/opencode/opencode.jsonc"
+
+# VS Code User Settings
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+mkdir -p "$VSCODE_USER_DIR"
+symlink "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_USER_DIR/settings.json"
 
 # Ghostty
 mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"

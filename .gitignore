@@ -1,6 +1,21 @@
 .DS_Store
 *.backup
-.env
+.env*
 *.swp
 *.swo
 *~
+
+# Credentials & local configurations
+*.key
+*.crt
+*.conf
+*.pem
+*.p15
+*.pfx
+*.db
+*.sqlite
+/bin/*
+!/bin/.gitkeep
+!/bin/update_home.py
+
+

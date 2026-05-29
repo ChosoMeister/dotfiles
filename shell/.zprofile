@@ -16,3 +16,7 @@ export PATH="$PATH:/Users/mustafa/.local/bin"
 
 # Added by Antigravity CLI installer
 export PATH="/Users/mustafa/.local/bin:$PATH"
+
+# Custom dotfiles scripts
+export PATH="$HOME/.dotfiles/bin:$PATH"
+

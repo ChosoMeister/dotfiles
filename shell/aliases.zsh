@@ -7,10 +7,26 @@ alias dl="cd $HOME/Downloads"
 alias dt="cd $HOME/Desktop"
 alias dot="cd $HOME/.dotfiles"
 
-# ── ls Improvements ──
-alias ll='ls -alFh'
-alias la='ls -A'
-alias l='ls -CF'
+# ── Modern ls & cat (eza, bat, zoxide) ──
+if command -v eza &>/dev/null; then
+  alias ls='eza --icons --git-repos'
+  alias ll='eza -alF --icons --git-repos'
+  alias la='eza -a --icons'
+  alias l='eza -F --icons'
+else
+  alias ll='ls -alFh'
+  alias la='ls -A'
+  alias l='ls -CF'
+fi
+
+if command -v bat &>/dev/null; then
+  alias cat='bat --style=plain'
+fi
+
+if command -v zoxide &>/dev/null; then
+  # zoxide is hooked via shell setup; cd works as z
+  alias cd='z'
+fi
 
 # ── Git Shortcuts ──
 alias gs='git status -sb'
